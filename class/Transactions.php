@@ -469,7 +469,11 @@ class Transactions extends \XoopsObject
             $form->addElement(new \XoopsFormHidden('tra_comments', $traComments));
             $form->addElement(new \XoopsFormHidden('tra_hist', $traHist));
             $form->addElement(new \XoopsFormHidden('tra_datecreated', \time()));
-            $form->addElement(new \XoopsFormHidden('tra_submitter', $GLOBALS['xoopsUser']->uid()));
+            if ($isAdmin) {
+                $form->addElement(new \XoopsFormSelectUser(\_MA_WGSIMPLEACC_SUBMITTER, 'tra_submitter', false, $traSubmitter));
+            } else {
+                $form->addElement(new \XoopsFormHidden('tra_submitter', $GLOBALS['xoopsUser']->uid()));
+            }
         }
         $form->addElement(new \XoopsFormHidden('start', $start));
         $form->addElement(new \XoopsFormHidden('limit', $limit));
