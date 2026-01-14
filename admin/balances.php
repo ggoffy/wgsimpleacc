@@ -83,7 +83,12 @@ switch ($op) {
         $balancesObj->setVar('bal_amountstart', Utility::StringToFloat($balAmountStart));
         $balAmount = Request::getString('bal_amountend');
         $balancesObj->setVar('bal_amountend', Utility::StringToFloat($balAmount));
-        $balancesObj->setVar('bal_status', Request::getInt('bal_status'));
+        $balType = Request::getInt('bal_type');
+        if (Constants::BALANCE_TYPE_FINAL == $balType) {
+            $balancesObj->setVar('bal_status', Constants::TRASTATUS_APPROVED);
+        } else {
+            $balancesObj->setVar('bal_status', Constants::BALSTATUS_TEMPORARY);
+        }
         $balanceDatecreatedObj = \DateTime::createFromFormat(_SHORTDATESTRING, Request::getString('bal_datecreated'));
         $balancesObj->setVar('bal_datecreated', $balanceDatecreatedObj->getTimestamp());
         $balancesObj->setVar('bal_submitter', Request::getInt('bal_submitter'));

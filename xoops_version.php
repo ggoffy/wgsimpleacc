@@ -18,11 +18,12 @@
  * @author         Goffy - XOOPS Development Team - Email:<webmaster@wedega.com> - Website:<https://xoops.wedega.com>
  */
 
-//
-require_once __DIR__ . '/preloads/autoloader.php';
 
 $moduleDirName      = \basename(__DIR__);
 $moduleDirNameUpper = \mb_strtoupper($moduleDirName);
+
+include \XOOPS_ROOT_PATH . '/modules/' . $moduleDirName . '/preloads/autoloader.php';
+
 // ------------------- Informations ------------------- //
 $modversion = [
     'name'                => \_MI_WGSIMPLEACC_NAME,

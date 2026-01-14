@@ -21,11 +21,14 @@
 use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\Helper;
 
+$moduleDirName = \basename(__DIR__);
+
 require \dirname(__DIR__, 2) . '/mainfile.php';
 require __DIR__ . '/include/common.php';
+include \XOOPS_ROOT_PATH . '/modules/' . $moduleDirName . '/preloads/autoloader.php';
+
 
 global $xoTheme;
-$moduleDirName = \basename(__DIR__);
 
 $helper = Helper::getInstance();
 
