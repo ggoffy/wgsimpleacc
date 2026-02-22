@@ -2,7 +2,7 @@
 <{include file='db:wgsimpleacc_admin_header.tpl' }>
 
 <{if $assets_list|default:''}>
-    <table class='table table-bordered'>
+    <table class='outer'>
         <thead>
             <tr class='head'>
                 <th class="center"><{$smarty.const._MA_WGSIMPLEACC_ASSET_ID}></th>

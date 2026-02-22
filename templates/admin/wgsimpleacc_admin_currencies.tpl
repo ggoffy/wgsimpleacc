@@ -2,7 +2,7 @@
 <{include file='db:wgsimpleacc_admin_header.tpl' }>
 
 <{if $currencies_list|default:''}>
-    <table class='table table-bordered'>
+    <table class='outer'>
         <thead>
             <tr class='head'>
                 <th class="center"><{$smarty.const._AM_WGSIMPLEACC_CURRENCY_ID}></th>
